@@ -1,0 +1,114 @@
+<?php include"inc/header.php"; ?>
+<!--Header Section End------------->
+
+<!--Form Start------------->
+<div class="container form_container">
+	<div class="mcol_8 register overflow">
+	<div class="mcol_3 background signup_bg" style="background-image:url(images/signup_bg.jpg);"></div>
+	
+	<div class="mcol_9">
+		<form action="" method="">
+		<table class="tbl_form">
+			<caption><h1>create account</h1></caption>
+			<tr>
+				<td>
+					<label for="name">Name</label>
+				</td>
+				<td colspan="3">
+					<input type="text" placeholder="Enter name" name="name">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label for="username">Username</label>
+				</td>
+				<td colspan="3">
+					<input type="text" placeholder="Enter username" name="name">
+				</td>
+			</tr>
+			  
+			<tr>
+				<td>
+					<label for="email">Email Address</label>
+				</td>
+				<td colspan="3">
+					<input type="email" placeholder="Enter email address" name="email">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label for="phone">Cell Number</label>
+				</td>
+				<td colspan="3">
+					<input type="phone" placeholder="Enter cell phone number" name="phone">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label for="address">Address</label>
+				</td>
+				<td colspan="3">
+					<textarea name="address"></textarea>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label for="password">Password</label>
+				</td>
+				<td colspan="3">
+					<input type="password" placeholder="Enter password" name="password">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label for="cnf_password">Confirm</label>
+				</td>
+				<td colspan="3">
+					<input type="password" placeholder="Confirm password" name="cnf_password">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label for="level">Join As</label>
+				</td>
+				<td>
+					<input type="radio" name="level"><span>User</span>
+				</td>
+				<td>
+					<input type="radio" name="level"><span>Owner</span>
+				</td>
+				<td>
+					<input type="radio" name="level"><span>Agent</span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="4">
+					<button class="btn_success" type="submit" name="signup">Sign Up</button>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="4">
+				<p>Already have an account?
+				<span><a href="signin.php">Sign in</a></span>
+				</p>
+				</td>
+			</tr>
+		</table>
+		</form>
+	</div>
+	</div>
+</div>
+<!--Form End------------->
+
+	
+<!--Footer Section Start------------->
+<?php include"inc/footer.php"; ?>
+<!--Footer Section End------------->

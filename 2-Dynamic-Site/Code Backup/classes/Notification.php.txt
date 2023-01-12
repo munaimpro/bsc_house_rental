@@ -1,0 +1,98 @@
+<?php
+$filepath = realpath(dirname(__FILE__));
+include_once ($filepath.'/../lib/Database.php');
+include_once ($filepath.'/../helpers/Format.php');
+?>
+
+<?php
+Class Notification{
+	private $db;
+	private $fm;
+	
+	public function __construct(){
+		$this->db = new Database();
+		$this->fm = new Format();
+	}
+	
+	public function notificationInsert($data){
+		$brandName = mysqli_real_escape_string($this->db->link, $this->fm->validation($brandName));
+		
+		if(empty($brandName)){
+			$msg = "Brand name must not be empty!";
+			return $msg;
+		} else{
+			$query = "INSERT INTO tbl_brand(brandName) VALUES('$brandName')";
+			$brandinsert = $this->db->insert($query);
+			if($brandinsert){
+				$msg = "<span class='success'>Brand inserted successfully!</span>";
+				return $msg;
+			} else{
+				$msg = "<span class='error'>Brand not inserted</span>";
+				return $msg;
+			}
+		}
+	}
+	
+
+/*View notification process*/
+	
+	public function getAllNotification(){
+		$query = "SELECT tbl_notification.*, tbl_ad.adImg FROM tbl_notification 
+		INNER JOIN tbl_ad ON tbl_notification.adId = tbl_ad.adId 
+		ORDER BY notfDate DESC";
+		$result = $this->db->select($query);
+		return $result;
+	}
+	
+	public function brandUpdate($brandName, $id){
+		$brandName = $this->fm->validation($brandName);
+		$id        = $this->fm->validation($id);
+		$brandName = mysqli_real_escape_string($this->db->link, $brandName);
+		
+		if(empty($brandName)){
+			$msg = "Brand name must not be empty!";
+			return $msg;
+		} else{
+			$query = "UPDATE tbl_brand
+					  SET
+					  brandName = '$brandName' WHERE
+					  brandId = '$id'";
+			$updatebrand = $this->db->update($query);
+			if($updatebrand){
+				$msg = "Brand name updated successfully!";
+				return $msg;
+			} else{
+				$msg = "Brand name not updated";
+				return $msg;
+			}
+		}
+	}
+
+
+/*Delete notification process*/
+	
+	public function delNotificationById($ntfId){
+		$ntfId = mysqli_real_escape_string($this->db->link, $this->fm->validation($ntfId));
+		
+		$query = "DELETE FROM tbl_notification WHERE notfId = '$ntfId'";
+		$deldata = $this->db->delete($query);
+		if($deldata){
+			$msg = "<div class='alert alert_success'>Notification deleted successfully!</div>";
+			return $msg;
+		} else{
+			$msg = "<div class='alert alert_danger'>Something went wrong!</div>";
+			return $msg;
+		}
+	}
+
+
+/*View single notification process*/
+		
+	public function getNotificationById($nftMsg){
+		$nftMsg = mysqli_real_escape_string($this->db->link, $this->fm->validation($nftMsg));
+		
+		$query = "SELECT * FROM tbl_notification WHERE notfId = '$nftMsg'";
+		return $result = $this->db->select($query);
+	}
+}
+?>

@@ -1,0 +1,52 @@
+<!--Property List Section Start------------->	
+	<div class= "list overflow">
+		<h1 class="sub-title">property list</h1>
+		<?php
+			$getAllAd = $pro->getAllPropertyByRange();
+			if($getAllAd){ 
+			$totalAd = mysqli_num_rows($getAllAd);
+		?>
+		<div class="list_content <?php if($totalAd > 2){ ?>slider<?php } ?>">
+		<!--List Item 1------------->
+			<?php
+				while($getad = $getAllAd->fetch_assoc()){ ?>
+			<div class="list_item overflow">
+					<div class="item_box overflow">
+					<a href="property_details.php?adid=<?php echo $getad['adId'];?>">	
+						<div class="item_box_upper overflow background" style="background-image:url(<?php echo $getad['adImg'];?>)">
+							<div class="item_upper item_category">
+								<p><?php echo $getad['catName'];?></p>
+							</div>
+							<div class="item_upper item_pricebox overflow">
+								<div class="item_upper_left">
+									<p><i class="fa-solid fa-bangladeshi-taka-sign"></i><span><?php echo $getad['adRent'];?>/<?php if($getad['rentType'] == "mo"){echo"Month";} else{ echo"week"; };?></span></p>
+								</div>
+								<a href="?wlistid=<?php echo $getad['adId'];?>">
+								<div class="item_upper_left item_wlist_icon">	
+									<p class="overflow"><i class="fa-solid fa-heart"></i></p>
+								</div>
+								</a>
+							</div>
+						</div>
+					</a>
+					<a href="property_details.php?adid=<?php echo $getad['adId'];?>">
+						<div class="item_box_lower overflow"> 
+							<p><?php echo $getad['adTitle'];?></p>
+							<h3><i class="fa-brands fa-accusoft"></i><span><?php echo $getad['catName'];?></span></h3>
+							<p><i class="fa-solid fa-file-pen"></i>Posted on: <?php echo $fm->formatDate($getad['adDate']);?></p>
+							<p><i class="fa-solid fa-bangladeshi-taka-sign"></i></i><?php echo $getad['adRent'];?>/<?php if($getad['rentType'] == "mo"){echo"Month";} else{ echo"week"; };?> <?php if($getad['adNegotiable'] == "negotiable"){ ?><span>(Negotiable)</span><?php } ?></p>
+							<p><i class="fa-solid fa-location-dot"></i><?php echo $getad['adAddress'];?></p>
+						</div>
+					</a>
+					</div>
+			</div>
+		<?php } ?>
+		</div>
+		<?php } ?>
+		
+		<div class="browse_list_button">
+			<a href="property_list.php"><button class="btn_success btn_browse">browse list</button></a>
+		</div>
+	</div>
+	
+<!--Property List Section End------------->	

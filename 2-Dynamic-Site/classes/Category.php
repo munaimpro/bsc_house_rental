@@ -1,0 +1,192 @@
+<?php
+$filepath = realpath(dirname(__FILE__));
+include_once ($filepath.'/../lib/Database.php');
+include_once ($filepath.'/../helpers/Format.php');
+?>
+
+<?php
+Class Category{
+	private $db;
+	private $fm;
+	
+	public function __construct(){
+		$this->db = new Database();
+		$this->fm = new Format();
+	}
+
+	
+/* Category list fetch process*/
+	
+	public function getAllCat(){
+		$query = "SELECT * FROM tbl_category ORDER BY catId DESC";
+		$result = $this->db->select($query);
+		return $result;
+	}
+
+	
+/* Category delete process*/
+		
+	public function delCatById($delCatId){
+		$delCatId = mysqli_real_escape_string($this->db->link, $this->fm->validation($delCatId));
+		
+		$query = "DELETE FROM tbl_category WHERE catId = '$delCatId'";
+		$deldata = $this->db->delete($query);
+		if($deldata){
+			$msg = "<div class='alert alert_success'>Category deleted successfully!</div>";
+			return $msg;
+		} else{
+			$msg = "<div class='alert alert_danger'>Category not deleted</div>";
+			return $msg;
+		}
+	}
+	
+	
+/* Single category fetch process*/
+		
+	public function getCatById($catId){
+		$catId = mysqli_real_escape_string($this->db->link, $this->fm->validation($catId));
+		
+		$query = "SELECT * FROM tbl_category WHERE catId = '$catId'";
+		$result = $this->db->select($query);
+		return $result;
+	}
+	
+	
+/* Category insert process */
+	
+	private function checkCategory($catName){
+		$query = "SELECT catName FROM tbl_category WHERE catName = '$catName'";
+		$result = $this->db->select($query);
+		if($result){
+			return true;
+		} else{
+			return false;
+		}
+	}
+	
+	public function catInsert($data, $files){
+		$catName = mysqli_real_escape_string($this->db->link, $this->fm->validation($data['catname']));
+		
+		$file_name = mysqli_real_escape_string($this->db->link, $this->fm->validation($files['catimg']['name']));
+		
+		$file_size = mysqli_real_escape_string($this->db->link, $this->fm->validation($files['catimg']['size']));
+		
+		$file_temp = $files['catimg']['tmp_name'];
+		
+		$permited  = array('jpg', 'jpeg', 'png');
+		$div 	  	    = explode('.', $file_name);
+		$file_ext       = strtolower(end($div));
+		$unique_image   = substr(md5(time()), 0, 10).'.'.$file_ext;
+		$uploaded_image = "uploads/category_image/".$unique_image;
+		
+		$catCheck = $this->checkCategory($catName);
+		
+		if(empty($catName) || empty($file_name)){
+			$msg = "<div class='alert alert_danger'>Error! Fields must not be empty</div>";
+			return $msg;
+		} elseif($catCheck == true){
+			$msg = "<div class='alert alert_danger'>Category already exist</div>";
+			return $msg;
+		} elseif ($file_size >1048567) {
+			$msg = "<div class='alert alert_danger'>Image Size should be less then 1MB!</div>";
+			return $msg;
+		} elseif (in_array($file_ext, $permited) === false) {
+			$msg = "<div class='alert alert_danger'>You can upload only:-".implode(', ', $permited)." type image</div>";
+			return $msg;
+		} else{
+			move_uploaded_file($file_temp, "../".$uploaded_image);
+				
+			$query = "INSERT INTO tbl_category(catName, catImg) VALUES('$catName', '$uploaded_image')";
+			$catinsert = $this->db->insert($query);
+			if($catinsert){
+				$msg = "<div class='alert alert_success'>Category inserted successfully!</div>";
+				return $msg;
+			} else{
+				$msg = "<div class='alert alert_danger'>Category not inserted</div>";
+				return $msg;
+			}
+		}
+	}
+	
+	
+/* Category update process */
+	
+	public function catUpdate($data, $files, $catId){
+		$catId = mysqli_real_escape_string($this->db->link, $this->fm->validation($catId));
+		
+		$catName = mysqli_real_escape_string($this->db->link, $this->fm->validation($data['catname']));
+		
+		$file_name = mysqli_real_escape_string($this->db->link, $this->fm->validation($files['catimg']['name']));
+		
+		$file_size = mysqli_real_escape_string($this->db->link, $this->fm->validation($files['catimg']['size']));
+		
+		$file_temp = $files['catimg']['tmp_name'];
+		
+		$permited  = array('jpg', 'jpeg', 'png');
+		$div 	  	    = explode('.', $file_name);
+		$file_ext       = strtolower(end($div));
+		$unique_image   = substr(md5(time()), 0, 10).'.'.$file_ext;
+		$uploaded_image = "uploads/category_image/".$unique_image;
+		
+		if(!empty($file_name)){
+			if(empty($catName)){
+				$msg = "<div class='alert alert_danger'>Error! Fields must not be empty</div>";
+				return $msg;
+			} elseif ($file_size >1048567) {
+				$msg = "<div class='alert alert_danger'>Image Size should be less then 1MB!</div>";
+				return $msg;
+			} elseif (in_array($file_ext, $permited) === false) {
+				$msg = "<div class='alert alert_danger'>You can upload only:-".implode(', ', $permited)." type image</div>";
+				return $msg;
+			} else{
+				move_uploaded_file($file_temp, "../".$uploaded_image);
+					
+				$query = "UPDATE tbl_category
+					  SET
+					  catName = '$catName',
+					  catImg  = '$uploaded_image' WHERE
+					  catId   = '$catId'";
+				$catupdate = $this->db->update($query);
+				if($catupdate){
+					$msg = "<div class='alert alert_success'>Category updated successfully!</div>";
+					return $msg;
+				} else{
+					$msg = "<div class='alert alert_danger'>Category not updated</div>";
+					return $msg;
+				}
+			}
+		} else{
+			if(empty($catName)){
+				$msg = "<div class='alert alert_danger'>Error! Fields must not be empty</div>";
+				return $msg;
+			} else{
+				$query = "UPDATE tbl_category
+					  SET
+					  catName = '$catName' WHERE
+					  catId   = '$catId'";
+				$catupdate = $this->db->update($query);
+				if($catupdate){
+					$msg = "<div class='alert alert_success'>Category updated successfully!</div>";
+					return $msg;
+				} else{
+					$msg = "<div class='alert alert_danger'>Category not updated</div>";
+					return $msg;
+				}
+			}
+		}	
+	}
+	
+
+/*Category and total ad in each category */
+
+	public function getCatAdNum($catId){
+		$catId = mysqli_real_escape_string($this->db->link, $this->fm->validation($catId));
+		
+		$query = "SELECT adId FROM tbl_ad WHERE catId = '$catId' AND adStatus = '1'";
+		$result = $this->db->select($query);
+		if($result){
+			return mysqli_num_rows($result);
+		}
+	}
+}
+?>

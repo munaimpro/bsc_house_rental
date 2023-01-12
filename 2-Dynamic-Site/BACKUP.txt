@@ -1,0 +1,33 @@
+<div class="list_content <?php if($totalAd > 2){ ?>slider<?php } ?>">
+		<!--List Item 1------------->
+			<?php
+				while($getad = $getAllAd->fetch_assoc()){ ?>
+			<div class="list_item overflow">
+				<a href="property_details.php?adid=<?php echo $getad['adId'];?>">
+					<div class="item_box overflow">
+						<div class="item_box_upper overflow background" style="background-image:url(<?php echo $getad['adImg'];?>)">
+							<div class="item_upper item_category">
+								<p><?php echo $getad['catName'];?></p>
+							</div>
+							<div class="item_upper item_pricebox overflow">
+								<div class="item_upper_left">
+									<p><i class="fa-solid fa-bangladeshi-taka-sign"></i><span><?php echo $getad['adRent'];?>/<?php if($getad['rentType'] == "mo"){echo"Month";} else{ echo"week"; };?></span></p>
+								</div>
+								<div class="item_upper_left item_wlist_icon">
+									<p class="overflow"><i class="fa-solid fa-heart"></i></p>
+								</div>
+							</div>
+						</div>
+						<div class="item_box_lower overflow"> 
+							<p><?php echo $getad['adTitle'];?></p>
+							<h3><i class="fa-brands fa-accusoft"></i><span><?php echo $getad['catName'];?></span></h3>
+							<p><i class="fa-solid fa-file-pen"></i>Posted on: <?php echo $fm->formatDate($getad['adDate']);?></p>
+							<p><i class="fa-solid fa-bangladeshi-taka-sign"></i></i><?php echo $getad['adRent'];?>/<?php if($getad['rentType'] == "mo"){echo"Month";} else{ echo"week"; };?> <?php if($getad['adNegotiable'] == "negotiable"){ ?><span>(Negotiable)</span><?php } ?></p>
+							<p><i class="fa-solid fa-location-dot"></i><?php echo $getad['adAddress'];?></p>
+						</div>
+					</div>
+				</a>
+			</div>
+		<?php } ?>
+		</div>
+		<?php } ?>

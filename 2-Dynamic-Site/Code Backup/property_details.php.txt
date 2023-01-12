@@ -1,0 +1,188 @@
+<?php include"inc/header.php"; ?>
+<!--Header Section End------------->
+
+<div class="page_title">
+	<h1 class="sub-title">property details</h1>
+</div>
+
+<!--Property Details Section Start------------->
+<div class="container">
+	<div class="responsive_mcol mcol_8">
+	
+	<!--Property Title Section------------->
+		<div class="property_details">
+			<div class="property_title">
+				<h1>Property title will be go here</h1>
+				<div class="property_location">
+					<p>Dhanmondi 37 no. road - Dhaka</p>
+				</div>
+			</div>
+		</div>
+		
+	<!--Property Image Section------------->
+		<div class="property_gallery">
+			<div><img src="images/1.jpg"/></div>
+			<div><img src="images/1.jpg"/></div>
+			<div><img src="images/1.jpg"/></div>
+			<div><img src="images/1.jpg"/></div>
+			<div><img src="images/1.jpg"/></div>
+		</div>
+		
+		<div class="property_small_details">
+			<h2>Hosted by Jhon Brandon</h2>
+			<h4>$8000/mo <span>(negotiable)</span></h4>
+		</div>
+		
+		<div class="property_details_list">
+			<h1>details</h1>
+			<div class="property_details_body">
+				<div class="property_feature overflow">
+					<div><p>property type</p></div>
+					<div><p><span>flat/apartment</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>preffered renter</p></div>
+					<div><p><span>family, small family, male job holder, female job holder</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>area</p></div>
+					<div><p><span>22300 sft spac</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>bedroom(s)</p></div>
+					<div><p><span>4</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>attach bath</p></div>
+					<div><p><span>3</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>common bath</p></div>
+					<div><p><span>3</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>balconies</p></div>
+					<div><p><span>3</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>car parking</p></div>
+					<div><p><span>yes</span></p></div>
+				</div>
+				
+				<h3>price details</h3>
+				<div class="property_feature overflow">
+					<div><p>gas bill</p></div>
+					<div><p><span>$2000</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>service charge</p></div>
+					<div><p><span>$1000</span></p></div>
+				</div>
+				
+				<h3>other details</h3>
+				<div class="property_feature overflow">
+					<div><p>drawing room</p></div>
+					<div><p><span>space</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>floor no</p></div>
+					<div><p><span>2nd</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>gas connection</p></div>
+					<div><p><span>yes</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>generator</p></div>
+					<div><p><span>yes</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>lift</p></div>
+					<div><p><span>yes</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>CCTV camera</p></div>
+					<div><p><span>yes</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>open space</p></div>
+					<div><p><span>yes</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>available from</p></div>
+					<div><p><span>March 3, 2022</span></p></div>
+				</div>
+				
+				<div class="property_feature overflow">
+					<div><p>built year</p></div>
+					<div><p><span>1998</span></p></div>
+				</div>
+			</div>
+			
+			<h1>description</h1>
+			<div class="property_details_body property_description">
+				<p>Property description will be go here. Property description will be go here. Property description will be go here. Property description will be go here. Property description will be go here. Property description will be go here. Property description will be go here. </p>
+			</div>
+		</div>
+		
+	<!--Contact Section Start------------->
+		<div class="property_contact">
+			<div class="property_contact_title">
+				<h1>contact now</h1>
+				<p>Contact us for necessary information about this property before booking</p>
+			</div>
+			
+			<form action="" method="post">
+				<div class="contact_body overflow">
+					<div class="contact_part">
+					  <label for="name"><b>Name:</b></label>
+					  <input type="text" placeholder="Enter name" name="name" id="name" required><br><br><br>
+					  
+					  <label for="email"><b>Mobile No:</b></label>
+					  <input type="text" placeholder="Enter Mobile No" name="email" id="email" required><br><br><br>
+					  
+					  <label for="email"><b>Email:</b></label>
+					  <input type="text" placeholder="Enter Email" name="email" id="email" required><br><br><br>
+					</div>
+				
+					<div class="contact_part">
+					  <label for="name"><b>Message:</b></label>
+					  <textarea placeholder="Type your message" name="message"></textarea>
+					</div>
+				</div>
+				
+				<div class="action_button overflow">
+					<button type="submit">Send</button>
+				</div>
+				
+				<div class="login_button overflow">
+					<button class="btn_success" type="submit">Login</button>
+					<span>to contact us</span>
+				</div>
+			</form>
+		</div>
+	<!--Contact Section End------------->
+		
+	</div>
+</div>
+<!--Property Details Section End------------->
+
+	
+<!--Footer Section Start------------->
+<?php include"inc/footer.php"; ?>
+<!--Footer Section End------------->

@@ -1,0 +1,102 @@
+<?php
+	include"inc/header.php";
+	
+/*===========================
+Pagination process
+===========================*/
+	$per_page = 10;
+	if(isset($_GET['page'])){
+		$page = $_GET['page'];
+	} else{
+		$page = 1;
+	}
+	$start_from = ($page-1) * $per_page; 
+	
+?>
+<!--Header Section End------------->
+
+<div class="page_title">
+	<h1 class="sub-title">property category</h1>
+</div>
+
+<!--Property List Section Start------------->
+<div class="container">
+	<div class="responsive_mcol mcol_12">
+		<div class="responsive_mcol mcol_3">
+			<div class="property_category">
+				<h2>property category</h2>
+				<nav>
+					<ul>
+					<?php
+						$getcat = $cat->getAllCat();
+						if($getcat){
+							while($category = $getcat->fetch_assoc()){
+							$catId = $category['catId'];
+							$totalAd = $cat->getCatAdNum($catId);
+					?>
+						<li><a href="?catid=<?php echo $category['catId'];?>"><?php echo $category['catName'];?> (<?php if(!empty($totalAd)){ echo $totalAd;} else{echo"0";} ?>)</a></li>
+					<?php } } else{echo"No category available";} ?>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		
+		<div class="responsive_mcol mcol_9">
+		<?php
+			if(!isset($_GET['catid']) || $_GET['catid'] == NULL){
+				echo "<script>window.location='index.php'</script>";
+			} else{
+				$catId = $_GET['catid'];
+				
+				$getCatAd = $pro->getAdByCategory($start_from, $per_page, $catId);
+				if($getCatAd){
+					while($getad = $getCatAd->fetch_assoc()){ 
+		?>
+			<div class="property_box">
+				<a href="property_details.php?adid=<?php echo $getad['adId'];?>">
+					<div class="property_box_content overflow">
+						<div class="popular_cat_heading cat_heading">
+							<span><?php echo $getad['catName'];?></span>
+						</div>
+						<div class="property_box_img">
+							<img src="<?php echo $getad['adImg'];?>" alt="ad image"/>
+						</div>
+						<div class="property_box_text">
+							<p><?php echo $getad['adTitle'];?></p>
+							<h3><i class="fa-brands fa-accusoft"></i><?php echo $getad['catName'];?></h3>
+							<p><i class="fa-solid fa-file-pen"></i>Posted on: <?php echo $fm->formatDate($getad['catName']);?></p>
+							<p><i class="fa-solid fa-location-dot"></i><?php echo $getad['adAddress'];?></p>
+							<p><img class="taka_sign" src="images/taka.png" alt="taka"/><?php echo $getad['adRent'];?>/<?php if($getad['rentType'] == "mo"){echo"Month";} else{ echo"Week"; } 
+							if(!empty($getad['adNegotiable'])){ ?><span> (negotiable)</span><?php } ?></p>
+						</div>
+					</div>
+				</a>
+			</div>
+		<?php } } else{
+			echo"<h1>No Ad Availble</h1>";
+		}?>
+		</div>
+	</div>
+	<div class="mcol_12">
+	<?php
+		$getAdRows = $pro->getPropertyRows();
+		$total_pg  = ceil($getAdRows/$per_page);
+	?>
+		<div class="pagination">
+			<ul>
+				<li><a href="?page=1&&catid=<?php echo $catId;?>">prev</a></li>
+			<?php for($i = 1; $i<= $total_pg; $i++){ ?>
+				<li><a href="?page=<?php echo $i; ?>&&catid=<?php echo $catId;?>"><?php echo $i; ?></a></li>
+			<?php } ?>
+				<li><a href="?page=<?php echo $total_pg; ?>&&catid=<?php echo $catId;?>">next</a></li>
+			</ul>
+		</div>
+	</div>
+	<?php } ?>
+</div>
+<!--Property List Section End------------->
+
+	
+<!--Footer Section Start------------->
+<?php include"inc/footer.php"; ?>
+<!--Footer Section End------------->

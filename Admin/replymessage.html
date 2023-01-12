@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="house rental system, system, house">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="author" content="Munaim Khan">
+	<title>House Rental System</title>
+
+<!--Fontawesome style sheet Start------------->
+	<link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/fontawesome/css/fontawesome.min.css"/>
+	
+	<!-- Fontawesome style cdn ---->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css">
+<!--Fontawesome style sheet End------------->	
+	
+<!--Data Table style sheet Start------------->
+	<link rel="stylesheet" type="text/css" href="../css/datatable/jquery.datatable.min.css"/>
+	
+	<!-- Data Table style cdn ---->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+<!--Data Table style sheet End------------->
+	<link rel="stylesheet" type="text/css" href="../mystyle.css"/>
+</head>
+
+<body>
+<!--Header Section Start------------->
+	<div class="top_header overflow">
+		<div class="top_left col overflow">
+			<div class="logoimg overflow">
+				<img src="../images/logo.jpg" alt="logo"/>
+			</div>
+			<div class="top_header_list overflow">
+				<ul>
+					<li>
+						<p>
+							<i class="fa-solid fa-phone"></i><span>Phone: +8801734530981</span>
+						</p>
+					</li>
+					<li>
+						<p>
+							<i class="fa-solid fa-envelope"></i>
+							</i><span>Email: info@rentinghome.com</span>
+						</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="col top_right overflow">
+			<div class="userimg overflow">
+				<img src="../images/munaim.jpg" alt="user"/>
+			</div>
+			<div class="users_name">
+				<p>Md. Munaim Khan</p>
+			</div>
+		</div>
+	</div>
+	
+	<!--Agent nav----------->
+	<nav class="topnav admin_nav topnav_admin" id="navList">
+		<div class="topnav_bars" onclick="togglebtn()">
+			<i class="fa-solid fa-bars"></i>
+		</div>
+		<ul>
+			<li><a href="dashboard_agent.html"><i class="fa-solid fa-signal"></i><span>dashboard</span></a></li>
+			
+			<li onclick="togglebtn_sitedetails()">
+				<a class="responsive_caret"><span>site details</span><i class="fa-solid fa-caret-down"></i></a>
+				<div class="property_dropdown overflow" id="sitedetailsNav">
+				<ul>
+					<li><a href="site_details.html"><i class="fa-solid fa-gear"></i><span>site details</span></a></li>
+					
+					<li><a href="copyright.html"><i class="fa-solid fa-copyright"></i><span>copyright</span></a></li>
+				</ul>
+				</div>
+			</li>
+			
+			<li onclick="togglebtn_category()">
+				<a class="responsive_caret"><span>category</span><i class="fa-solid fa-caret-down"></i></a>
+				<div class="property_dropdown overflow" id="categoryNav">
+				<ul>
+					<li><a href="category_list.html"><i class="fa-solid fa-list"></i><span>category list</span></a></li>
+					
+					<li><a href="add_category.html"><i class="fa-solid fa-plus"></i><span>add category</span></a></li>
+				</ul>
+				</div>
+			</li>
+			
+			<li><a href="property_list_admin.html"><i class="fa-brands fa-accusoft"></i><span>property list</span></a></li>
+			
+			<li><a href="owner_list.html"><i class="fa-solid fa-user-group"></i><span>owner list</span></a></li>
+			
+			<li><a href="notification.html"><i class="fa-solid fa-bell"></i><span>notification</span></a></li>
+			
+			<li><a href="booking_list.html"><i class="fa-solid fa-house-circle-check"></i><span>booking list</span></a></li>
+			
+			<li><a href="inbox.html"><i class="fa-solid fa-inbox"></i><span>inbox</span></a></li>
+			
+			
+			<li onclick="togglebtn_personalize()">
+				<a class="responsive_caret"><span>personalize</span><i class="fa-solid fa-caret-down"></i></a>
+				<div class="property_dropdown overflow" id="personalizeNav">
+				<ul>
+					<li><a href="profile.html"><i class="fa-solid fa-address-card"></i><span>your profile</span></a></li>
+					
+					<li><a href="../changepassword.html"><i class="fa fa-key"></i><span>change password</span></a></li>
+				</ul>
+				</div>
+			</li>
+			
+			<li class="backtosite"><a href="../index.html"><i class="fa-solid fa-arrow-right-to-bracket"></i><span>back to site</span></a></li>
+		</ul>
+	</nav>
+	
+	<!--Owner nav------------>
+	<nav class="topnav admin_nav topnav_admin" id="navList">
+		<div class="topnav_bars" onclick="togglebtn()">
+			<i class="fa-solid fa-bars"></i>
+		</div>
+		<ul>
+			<li><a href="dashboard_agent.html"><i class="fa-solid fa-signal"></i><span>dashboard</span></a></li>
+			
+			<li onclick="togglebtn_sitedetails()">
+				<a class="responsive_caret"><span>property details</span><i class="fa-solid fa-caret-down"></i></a>
+				<div class="property_dropdown overflow" id="sitedetailsNav">
+				<ul>
+					<li><a href="property_list_admin.html"><i class="fa-brands fa-accusoft"></i><span>your property</span></a></li>
+					
+					<li><a href="add_property.html"><i class="fa-brands fa-buffer"></i><span>post property</span></a></li>
+				</ul>
+				</div>
+			</li>
+			
+			<li><a href="notification.html"><i class="fa-solid fa-bell"></i><span>notification</span></a></li>
+			
+			<li><a href="booking_list.html"><i class="fa-solid fa-house-circle-check"></i><span>booking list</span></a></li>
+			
+			<li onclick="togglebtn_personalize()">
+				<a class="responsive_caret"><span>personalize</span><i class="fa-solid fa-caret-down"></i></a>
+				<div class="property_dropdown overflow" id="personalizeNav">
+				<ul>
+					<li><a href="profile.html"><i class="fa-solid fa-address-card"></i><span>your profile</span></a></li>
+					
+					<li><a href="../changepassword.html"><i class="fa fa-key"></i><span>change password</span></a></li>
+				</ul>
+				</div>
+			</li>
+			
+			<li class="backtosite"><a href="../index.html"><i class="fa-solid fa-arrow-right-to-bracket"></i><span>back to site</span></a></li>
+		</ul>
+	</nav>
+<!--Header Section End------------->
+
+
+<!--Dashboard Section Start------------->
+<div class="container">
+	<div class="mcol_12 admin_page_title">
+		<div class="page_title overflow">
+			<h1 class="sub-title">reply message</h1>
+			<h4><a href="../index.html"><i class="fa-solid fa-right-from-bracket"></i><span>sign out</span></a></h4>
+		</div>
+	</div>
+	
+	<div class="mcol_12">
+		<div class="mcol_2 admin_aside">
+		<!--Agent sidebar------------>
+			<nav class="admin_nav">
+				<ul>
+					<li><a href="dashboard_agent.html"><i class="fa-solid fa-signal"></i><span>dashboard</span></a></li>
+					
+					<li><a href="site_details.html"><i class="fa-solid fa-gear"></i><span>site details</span></a></li>
+					
+					<li><a href="copyright.html"><i class="fa-solid fa-copyright"></i><span>copyright</span></a></li>
+					
+					<li><a href="property_list_admin.html"><i class="fa-brands fa-accusoft"></i><span>property list</span></a></li>
+					
+					<li><a href="category_list.html"><i class="fa-solid fa-list"></i><span>category list</span></a></li>
+					
+					<li><a href="add_category.html"><i class="fa-solid fa-plus"></i><span>add category</span></a></li>
+					
+					<li><a href="owner_list.html"><i class="fa-solid fa-user-group"></i><span>owner list</span></a></li>
+					
+					<li><a href="notification.html"><i class="fa-solid fa-bell"></i><span>notification</span></a></li>
+					
+					<li><a href="booking_list.html"><i class="fa-solid fa-house-circle-check"></i><span>booking list</span></a></li>
+					
+					<li><a href="inbox.html"><i class="fa-solid fa-inbox"></i><span>inbox</span></a></li>
+					
+					<li><a href="profile.html"><i class="fa-solid fa-address-card"></i><span>your profile</span></a></li>
+					
+					<li><a href="../changepassword.html"><i class="fa fa-key"></i><span>change password</span></a></li>
+					
+					<li class="backtosite"><a href="../index.html"><i class="fa-solid fa-arrow-right-to-bracket"></i><span>back to site</span></a></li>
+				</ul>
+			</nav>
+			
+			
+		<!--Owner sidebar------------->
+			<nav class="admin_nav">
+				<ul>
+					<li><a href="dashboard_owner.html"><i class="fa-solid fa-signal"></i><span>dashboard</span></a></li>
+					
+					<li><a href="add_property.html"><i class="fa-brands fa-buffer"></i><span>post property</span></a></li>
+					
+					<li><a href="property_list_admin.html"><i class="fa-brands fa-accusoft"></i><span>your property</span></a></li>
+					
+					<li><a href="notification.html"><i class="fa-solid fa-bell"></i><span>notification</span></a></li>
+					
+					<li><a href="booking_list.html"><i class="fa-solid fa-house-circle-check"></i><span>booking list</span></a></li>
+					
+					<li><a href="profile.html"><i class="fa-solid fa-address-card"></i><span>your profile</span></a></li>
+					
+					<li><a href="../changepassword.html"><i class="fa fa-key"></i><span>change password</span></a></li>
+					
+					<li class="backtosite"><a href="../index.html"><i class="fa-solid fa-arrow-right-to-bracket"></i><span>back to site</span></a></li>
+				</ul>
+			</nav>	
+		</div>
+		
+		<div class="responsive_mcol mcol_8">
+		<!--Admin Content Start------------->
+			<div class="admin_content overflow">
+				<div class="user_profile">
+					<div class="profile_body">
+						<div class="msg_block_body overflow">
+							<div class="msg_field_box"><p>from</p></div>
+							<div class="msg_field_box"><input type="email" name="" value="rental@info.com"/></div>
+						</div>
+						
+						<div class="msg_block_body overflow">
+							<div class="msg_field_box"><p>to</p></div>
+							<div class="msg_field_box"><input type="text" name="" value="munaim@gmail.com"/></div>
+						</div>
+						
+						<div class="msg_block_body overflow">
+							<div class="msg_field_box"><p>subject</p></div>
+							<div class="msg_field_box"><input type="text" name="" placeholder="Write your subject"/></div>
+						</div>
+						
+						<div class="msg_block_body overflow">
+							<div class="msg_field_box"><p>message</p></div>
+							<div class="msg_field_box"><textarea class="tinymce" name=""></textarea></div>
+						</div>
+						
+						<div class="action_button">
+							<button type="submit" name="">send</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!--Admin Content End------------->
+		
+		</div>
+	</div>
+</div>
+<!--Dashboard Section End------------->
+
+
+<!--Footer Section Start------------->		
+	<footer class="footersection overflow">
+		<div class="footer-top overflow">
+			<div class="footer_top_upper overflow">
+			<!--Footer content 1------------->
+				<div class="footer_content">
+					<h2>about us</h2>
+					<div class="footer_text overflow">
+						<div class="text_icon">
+							<i class="fa-solid fa-location-dot"></i>
+						</div>
+						<div class="text_body">
+							<h3>address</h3>
+							<p>Dhanmondi, Dhaka</p>
+						</div>
+					</div>
+					
+					<div class="footer_text overflow">
+						<div class="text_icon">
+							<i class="fa-solid fa-envelopes-bulk"></i>
+						</div>
+						<div class="text_body">
+							<h3>for any question</h3>
+							<p>houserental@gmail.com</p>
+						</div>
+					</div>
+					
+					<div class="footer_text overflow">
+						<div class="text_icon">
+							<i class="fa-solid fa-mobile-screen"></i>
+						</div>
+						<div class="text_body">
+							<h3>help & support</h3>
+							<p>01232-231324</p>
+						</div>
+					</div>
+				</div>
+			
+			<!--Footer content 2------------->	
+				<div class="footer_content">
+					<h2>recent property</h2>
+					<div class="footer_text">
+						<a href="property_details.html">
+							<div class="footer_property overflow">
+								<div class="text_icon text_img">
+									<img src="../images/1.jpg" alt="property"/>
+								</div>
+								<div class="text_body">
+									<p>Property title here</p>
+									<p>March 3, 2022</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					<div class="footer_text">
+						<a href="property_details.html">
+							<div class="footer_property overflow">
+								<div class="text_icon text_img">
+									<img src="../images/1.jpg" alt="property"/>
+								</div>
+								<div class="text_body">
+									<p>Property title here</p>
+									<p>March 3, 2022</p>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					<div class="footer_text">
+						<a href="property_details.html">
+							<div class="footer_property overflow">
+								<div class="text_icon text_img">
+									<img src="../images/1.jpg" alt="property"/>
+								</div>
+								<div class="text_body">
+									<p>Property title here</p>
+									<p>March 3, 2022</p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			
+			<!--Footer content 3------------->
+				<div class="footer_content">
+					<h2>quick links</h2>
+					<div class="footer_text">
+						<nav class="footer_nav">
+							<ul>
+								<li><a href="../property_list.html">list of property &raquo;</a></li>
+								<li><a href="add_property.html">post property &raquo;</a></li>
+								<li><a href="../help_support.html">help & support &raquo;</a></li>
+								<li><a href="../signup.html">signup &raquo;</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>	
+			</div>
+		
+		<!--Footer social links------------->	
+			<div class="footer_top_lower">
+				<nav class="footer_social">
+					<ul>
+						<li><a href=""><p class="fb"><i class="fa-brands fa-facebook-f"></i></p></a></li>
+						<li><a href=""><p class="tw"><i class="fa-brands fa-twitter"></i></p></a></li>
+						<li><a href=""><p class="gp"><i class="fa-brands fa-google-plus-g"></i></p></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		
+		<div class="footer-bottom">
+			<p>&copy; 2022. All Rights Reserved</p>
+		</div>
+	</footer>
+<!--Footer Section End------------->
+
+<!--Javascript Files for TinyMce Editor Start------------->	
+	<script type="text/javascript" src="../css/tinymce/js/tinymce/tinymce.min.js"></script>
+	
+	<!-- TinyMce Javascript cdn ---->
+	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<!--Javascript Files for TinyMce Editor End------------->
+
+<!--Script for TinyMce Editor Start------------->
+<script>
+	tinymce.init({selector:'textarea.tinymce'});
+</script>
+<!--Script for TinyMce Editor End------------->
+
+<!--Javascript Fiels for Data Table Start------------->
+	<script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="../js/jquery.dataTables.min.js"></script>
+	
+	<!-- Data Table Javascript cdn ---->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<!--Javascript Fiels for Data Table End------------->
+
+<!-- Initializing Data Table Start---->
+	<script>
+		$(document).ready(function() {
+			$('#example').DataTable();
+		} );
+	</script>
+<!-- Initializing Data Table End---->
+
+<!--Script for responsive navbar Start------------>
+<script>
+	var navList = document.getElementById("navList");
+	function togglebtn(){
+		navList.classList.toggle("hidemenu");
+	}
+	
+	var sitedetailsNav = document.getElementById("sitedetailsNav");
+	function togglebtn_sitedetails(){
+		sitedetailsNav.classList.toggle("hide_dashboard_menu");
+	}
+	
+	var categoryNav = document.getElementById("categoryNav");
+	function togglebtn_category(){
+		categoryNav.classList.toggle("hide_dashboard_menu");
+	}
+	
+	var personalizeNav = document.getElementById("personalizeNav");
+	function togglebtn_personalize(){
+		personalizeNav.classList.toggle("hide_dashboard_menu");
+	}
+	
+	var propertyNav = document.getElementById("propertyNav");
+	function togglebtn_property(){
+		propertyNav.classList.toggle("hide_dashboard_menu");
+	}
+</script>
+<!--Script for responsive navbar End------------>
+</body>
+</html>

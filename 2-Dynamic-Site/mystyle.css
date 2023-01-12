@@ -1,0 +1,2434 @@
+/* ============================================== */
+ /* Author : Md. Munaim Khan
+ /* Email  : khanmail2599@gmail.com
+/* ============================================== */
+
+/*-------------------------
+Initial Style Start
+--------------------------*/
+
+* {
+    margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+	font-family: "Arial", sans-serif;
+}
+
+ul{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+	transition: .4s cubic-bezier(0.68, 1.07, 0.31, 0.62) all;
+}
+
+img{
+	width: 100%;
+	height: 100%;
+}
+
+i{
+	margin: 0 0.3em;
+}
+
+label{
+	font-weight: 600;
+    float: left;
+}
+
+input, textarea, select{
+	outline: none;
+    padding: 1em 0.5em;
+    width: 100%;
+    border: 0.04em solid #ddd;
+    border-radius: 0.2em;
+    font-size: .98em;
+    font-weight: 545;
+}
+
+input[type="radio"]{
+	width: 1.3em;
+    height: 1.3em;
+    margin-right: 0.2em;
+}
+
+input[type="checkbox"]{
+	width: 1.3em;
+    height: 1.3em;
+    margin-right: 0.2em;
+}
+
+button{
+	font-size: 1.1em;
+	transition: .2s cubic-bezier(0.68, 1.07, 0.31, 0.62) all;
+}
+
+button, select, 
+input[type="radio"], 
+input[type="checkbox"], 
+input[type="date"]{
+	cursor: pointer;
+}
+
+button, .page_title{
+	color: #fff;
+}
+
+.action_button button, 
+.btn_update, .btn_delete{
+    padding: .5em 1em;
+    background: #ff4500;
+    border: 0.1em solid #ff4500;
+    border-radius: 0.2em;
+    font-size: 1.2em;
+    font-weight: 550;
+	width: fit-content;
+}
+
+.action_button button:hover{
+	background: #ff6722;
+    border: 0.1em solid #ff6722;
+}
+
+.btn_success {
+	background: #3a7684;
+    box-shadow: inset 0em -1em 1.5em 0.15em #063240;
+    padding: 0.8em 2.5em;
+    border: 0.02em solid #6da9b7;
+    border-radius: 2em;
+    font-weight: 545; 
+}
+
+.btn_success:hover{
+	box-shadow: inset 0em -0.5em 1.5em 0.1em #063240;
+}
+
+.btn_browse{
+	background: repeating-linear-gradient(45deg, #3a7684, #063240 76px);
+	box-shadow: inset 0em -0.5em 1.5em 0.1em #063240;
+	transition: 1.5s cubic-bezier(0.68, 1.07, 0.31, 0.62) box-shadow;
+}
+
+.btn_browse:hover{
+	box-shadow: 0em 0em 0.1em 0em #063240;
+}
+
+.btn_update{
+	background: #1e90ff !important;
+    border: 0.1em solid #1e90ff !important;
+}
+
+.btn_update:hover{
+	background: #0c70FF !important;
+    border: 0.1em solid #0c70FF !important;
+}
+
+.btn_delete{
+	background: #ff0000 !important;
+    border: 0.1em solid #ff0000 !important;
+}
+
+.btn_delete:hover{
+	background: #cc0000 !important;
+    border: 0.1em solid #cc0000 !important;
+}
+
+.btn_approve{
+	background: #32cd32 !important;
+    border: 0.1em solid #32cd32 !important;
+}
+
+.btn_approve:hover{
+	background: #10ab20 !important;
+    border: 0.1em solid #10ab20 !important;
+}
+
+.btn_user{
+	background: #936839 !important;
+    border: 0.1em solid #936839 !important;
+}
+
+.btn_user:hover{
+	background: #714617 !important;
+    border: 0.1em solid #714617 !important;
+}
+
+.btn_owner{
+	background: #0d0d44 !important;
+    border-color: #0d0d44 !important;
+}
+
+.btn_owner:hover{
+	background: #0b0b22 !important;
+    border-color: #0b0b22 !important;
+}
+
+.btn_property{
+	background: #3a7684 !important;
+    border-color: #3a7684 !important;
+}
+
+.btn_property:hover{
+	background: #186462 !important;
+    border-color: #186462 !important;
+}
+
+.admin_property_table button{
+	padding: 0.12em 0;
+    margin: 0.12em;
+    width: 2em;
+    height: 2em;
+}
+
+table, .dashboard_lower_part{
+	width: 100%;
+}
+
+.overflow{
+	overflow: hidden;
+}
+
+.background{
+	background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.mcol_2, .mcol_3, .mcol_9, .mcol_12, .mcol_8{
+	padding: .5em;
+}
+
+.mcol_2{
+	width: 20%;
+}
+
+.mcol_3{
+	width: 30%;
+}
+
+.mcol_8{
+	width: 80%;
+    margin: 0 auto;
+}
+
+.mcol_9{
+	width: 70%;
+}
+
+.mcol_12{
+	width: 100%;
+}
+
+.alert{
+	width: 60%;
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.alert p{margin: 0 !important;}
+
+.alert_danger{
+	background: #df7777;
+    color: #8b0000;
+    border: 0.01em solid #8b0000;
+}
+
+.alert_success{
+	background: #85ed85;
+    color: #335633;
+    border: 0.01em solid #335633;
+}
+
+.mcol_12, .list .list_content, .contact_body, .footer_text, .footer_top_lower ul, .property_box .property_box_content, .pagination ul, .property_details_body .property_feature, .virtual_contact, .property_contact .property_contact_body, .property_booking, .my_dashboard_block, .msg_block_body, .dataTables_paginate, .register{
+	display: flex;
+}
+
+a, .property_dropdown, .property_dropdown ul, .property_gallery img, .admin_page_title, .admin_nav ul, .form_container .mcol_12{
+	display: block !important;
+}
+
+.footer-top .footer_content h2, .action_button button, .btn_update, .btn_delete, .topnav a, .centered h1, .searchform button span, .sub-title, .footer_text .footer_nav, .property_category h2, .property_details_list h1, .property_contact h1, .property_faq h1, .my_dashboard_block, .admin_property_table table th, .admin_property_table .published, .register .tbl_form caption{
+	text-transform: uppercase;
+}
+
+label, button, .searchform .select, .item_box_lower p span, .property_box p span, .property_small_details span, .item_box_upper .item_category, .popular_cat_heading, .popular_cat_text p:first-child, .add_property_block .property_block_title h2, .add_property_block .add_property_title, .property_negotiable_check span, .admin_property_table table h3, .admin_property_table a, .admin_property_table .published, .footer_text .text_body h3, .login_button span, .pagination ul li:first-child a, .pagination ul li:last-child a, .property_category ul li, .property_details_list h3, .property_contact h3, .faq_body h3, .property_details_body p, .virtual_contact div:first-child, .admin_nav ul li a, .add_property_block .property_block_title, .profile_body table tr:first-child td, .profile_body table tr td:first-child, .property_dropdown a, .property_box_text h3, .msg_field_box:first-child, .property_filter select{
+	text-transform: capitalize;
+}
+
+.top_left .top_header_list, .topnav, .banner, .searchform table tr td, .searchform .select, .sub-title, .item_box_upper .item_category, .item_pricebox .item_upper_left, .popular_category .popular_cat_text, .browse_list_button, .contact .contact_button, .register, .about, .footersection .footer-bottom, .property_category h2, .property_contact_title, .property_contact, .action_button, .property_contact .login_button, .property_contact .contact_button, .topnav_admin .admin_content, .profile_body table tr:last-child td, .dashboard_lower_part, .property_block_title, .my_dashboard_block, #example, .footer_top_lower p, .profile_header .profile_label, .alert{
+	text-align: center !important;
+}
+
+/*----------------------------
+Data Table Modification Start
+-----------------------------*/
+.dataTables_wrapper{
+	margin: 2em 0.3em;
+}
+
+table.dataTable thead th, table.dataTable thead td{
+	border-bottom: none;
+}
+
+table.dataTable.no-footer{
+	border-bottom-color: #ddd;
+}
+
+table.dataTable thead{
+	font-size: .9em;
+}
+
+/*----------------------------
+Slick Slider Modification Start
+-----------------------------*/
+.slick-next, .slick-prev, .slick-next:hover, .slick-prev:hover, 
+.slick-next:focus, .slick-prev:focus{
+	background: #3a7684;
+}
+
+.slick-list{
+	margin: 0 auto;
+}
+
+/*-------------------------
+Initial Style End
+--------------------------*/
+
+
+/*-------------------------
+Header Style
+-------------------------*/
+.col{
+    padding: 1em 0;
+    float: left;
+}
+
+.top_left{
+    padding-left: 1em;
+    color: #3a7684;
+    width: 60%;
+}
+
+.top_left, .top_right{
+	font-size: 1.1em;
+    font-weight: 550;
+}
+
+.top_left .logoimg{
+	width: 20%;
+    height: 5em;
+    float: left;
+}
+
+.top_left .top_header_list{
+	float: left;
+    line-height: 5em;
+    width: 80%;
+}
+
+.top_left ul{
+	display: inline-flex;
+    align-content: space-around;
+}
+
+.top_left ul li{
+	margin: .3em 0em .3em .8em;
+	cursor: pointer;
+}
+	
+.top_right{
+	margin-right: 1em;
+    width: 20%;
+    float: right;
+    line-height: 5.6em;
+}
+
+.top_right .userimg, 
+.top_right .users_name{
+	float: left;
+}
+
+.top_right .userimg{
+	width: 2em;
+    height: 2em;
+    margin-right: 0.4em;
+    border: 0.01em solid #ddd;
+    line-height: 100%;
+    position: relative;
+    top: 1.8em;
+    border-radius: 50%;
+}
+
+/*-------------------------
+Style the top navigation bar
+-------------------------*/
+.topnav{
+    background-color: #808080;
+	box-shadow: 0 0.1em 0.15em #333;
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+	overflow: inherit;
+	cursor: pointer;
+}
+
+.topnav ul, .admin_nav ul{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topnav ul li{
+	position: relative;
+}
+
+.property_dropdown{
+    position: absolute;
+    left: 0;
+    top: 3.1em;
+    background: #fff;
+    width: 12em;
+	box-shadow: 0 0.1em 0.15em #333;
+	height: 0;
+}
+
+.property_dropdown ul{
+    text-align: left;
+    box-shadow: 0 0.1em 0.15em #333;
+    background: #fff;
+    border-bottom-left-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+}
+
+.property_dropdown, 
+.property_dropdown ul li:last-child a{
+	border-bottom-left-radius: 0.3em;
+    border-bottom-right-radius: 0.3em;
+}
+
+
+/*-------------------------
+Style the topnav links
+-------------------------*/
+.topnav a, .topnav_bars{
+	color: #ffffff;
+	padding: 1em 2em;
+}
+
+.topnav a:hover, #active{
+  background:#3a7684;
+  color: #ffffff;
+}
+
+.property_dropdown ul li a{
+	padding: 0.8em 2em !important;
+    color: #808080 !important;
+    box-shadow: none !important;
+}
+
+.property_dropdown ul li a:hover, #cl_active, 
+.property_dropdown ul li a .row_number{
+	background:#808080 !important;
+	color: #ffffff !important;
+}
+
+.property_dropdown ul li a .row_number{
+	left: 82%;
+    top: -1.5em;
+}
+
+.property_dropdown ul li a:hover .row_number{
+	background:#ffffff !important;
+	color: #808080 !important;
+}
+
+.topnav_bars{
+	font-size: 1.5em;
+	cursor: pointer;
+	display: none;
+}
+
+/*-------------------------
+Banner holding the image and the text
+-------------------------*/
+.banner{
+  position: relative;
+  color: black;
+}
+
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centered h1{
+	font-size: 4.5em;
+	margin-bottom: .28em;
+}
+
+.searchform table tr{
+	height: 4em;
+}
+
+.searchform table tr td{
+    padding: 0 0.15em;
+}
+
+.searchform .select{
+	min-width: 10em;
+    font-size: 1.05em;
+    font-weight: 545;
+}
+
+.searchform table .last_select .select{
+	max-width: 10em;
+}
+
+.searchform button{
+	font-size: 1.4em;
+	width: 30%;
+    padding: 1em;
+    color: white;
+    border: .05em solid grey;
+    border-left: none;
+	margin-top: 1em;
+}
+
+.searchform button i, .footer_social i{
+	margin: 0;
+}
+
+.searchform button span{
+	margin-left: 0.5em;
+    font-weight: 750;
+}  
+
+.container{
+	overflow: hidden;
+	padding: 1em;
+}
+
+/*-------------------------
+Property list section
+-------------------------*/
+.sub-title{
+  margin: 1.4em 0.5em;
+  font-size: 2.2em;
+  font-weight: 500;
+}
+
+.list .list_content, 
+.about .about_text{
+ margin: 0 2.5em 3em;
+}
+
+.list_item{
+    box-shadow: 0 0 1em 0em #a9a9a9;
+    border-radius: 0.2em;
+	cursor: pointer;
+	margin: 0.5em;
+    width: 50%;
+}
+
+.list_item img{
+	width: 100%;
+	transition: 1s cubic-bezier(0.68, 1.07, 0.31, 0.62) all;
+	height: 17.5em;
+}
+
+.taka_sign{
+	height: 1.5em !important;
+	width: 1.5em !important;
+	float: left;
+}
+
+.list_item:hover .item_box_upper background-image{
+	transform: scale(1.1);
+}
+
+.list_item:hover img{
+	transform: scale(1.1);
+}
+
+.list_item a, .property_box a{
+	color: #000;
+	height: fit-content;
+}
+
+.list_item .item_box_upper{
+	padding: 0.8em;
+    background: transparent;
+    position: relative;
+	margin-bottom: -72%;
+}
+
+.item_box_upper .item_category{
+	margin: 0 auto;
+	margin-bottom: 50%;
+    padding: 0.2em 1em;
+    width: fit-content;
+    background: #f49723;
+    border: 0.1em solid #f49723;
+    border-radius: 0.2em;
+	position: relative;
+	z-index: 1;
+}
+
+.item_box_upper .item_pricebox{
+	position: relative;
+    bottom: 1em;
+}
+
+.item_pricebox .item_upper_left{
+	width: 50%;
+    float: left;
+    padding: 0.5em 0;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.2em;
+	position: relative;
+	z-index: 1;
+}
+
+.item_box_upper .item_category, 
+.item_pricebox .item_upper_left{
+	color: #ffffff;
+}
+
+.item_pricebox .item_wlist_icon{
+	width: 20%;
+	float: right;
+	position: relative;
+	z-index: 1;
+}
+
+.list_item .item_box_lower{
+	min-height: 15em;
+}
+
+.list_item .item_box_lower, 
+.popular_category .popular_cat_text{
+	line-height: 2em;
+    padding: 1.5em 1em 1em;
+}
+
+.item_box_lower p:first-child, 
+.popular_category .popular_cat_text p:first-child, 
+.property_box .property_box_text p:first-child{
+	font-size: 1.5em;
+}
+
+.item_box_lower p span, .property_box p span, .property_small_details span{
+	color: #1e90ff;
+	font-weight: 500;
+}
+
+.popular_category p{
+	color: #ffffff;
+}
+
+.popular_cat_heading{
+	padding: 1em;
+    background: #3a7684;
+    width: 6em;
+    height: 6em;
+    line-height: 4em;
+    border-radius: 50%;
+    font-size: 1.1em;
+    position: relative;
+    z-index: 1;
+    top: -1em;
+    left: -1em;
+    transform: rotate(-45deg);
+    margin-bottom: -6em;
+	box-shadow: 0 0 1em 0.5em darkgrey;
+}
+
+.popular_category .popular_cat_text{
+	background: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    margin: 0 auto;
+    height: 10em;
+    border-radius: 50%;
+    margin-top: -10.3em;
+    position: relative;
+    top: 4em;
+}
+
+.browse_list_button{
+	width: 90%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+
+.browse_list_button a{
+	display: initial !important;
+}
+
+/*-------------------------
+Contact  Form
+-------------------------*/
+.contact{
+	background: #3a7684;
+    padding: 1em 2em;
+    margin: 5em 0;
+    margin-bottom: 0;
+}
+
+.contact_body .contact_part{
+	width: 45%;
+    margin: 0 5%;
+}
+
+.contact_body .contact_part textarea{
+	height: 83%;
+}
+
+.contact_body .contact_part input, 
+.contact_body .contact_part textarea{
+	margin-top: 1em;
+}
+
+.contact .contact_button{
+    padding: 2em;
+}
+
+/*-------------------------
+Registration  Form
+-------------------------*/
+.page_title{
+	padding: 3em 0;
+    background: rgb(58 118 132 / 80%);
+    box-shadow: inset 0em 5em 3em 0.3em #174351;
+}
+
+.page_title h1{
+	margin: 0;
+}
+
+.form_container{background: #f1f1f1;}
+
+.form_container .mcol_8{
+	padding: 0;
+}
+
+.form_container .mcol_9, 
+.form_container .mcol_12{
+	padding: 3em .5em;
+}
+
+.form_container .mcol_12 label{margin: 0 4em;}
+
+.register{
+	background-color: #fff;
+    margin: 5em auto;
+    border-radius: 0.4em;
+    box-shadow: 0 0 0.5em 0 darkgrey;
+}
+
+.register .tbl_form caption{margin-bottom: 3em;}
+
+.register input[type=text], .register input[type=email], .register input[type=password], .register input[type=phone], .register textarea{
+	width: 80%;
+    border: none;
+	background: transparent;
+    border-bottom: 0.1em solid #3a7684;
+	border-radius: 0;
+	float: left;
+	resize: none;
+}
+
+.register input[type=text]:focus, .register input[type=email]:focus, .register input[type=password]:focus, .register input[type=phone]:focus, .register textarea:focus{
+	width: 85%;
+	transition: .4s cubic-bezier(0.68, 1.07, 0.31, 0.62) width;
+}
+
+.register .tbl_form td:first-child{
+	width: 30%;
+    padding: 1em;
+}
+.register .tbl_form td{
+	padding-bottom: 1.5em;
+}
+
+.register input[type="radio"], .register .tbl_form span{
+	position: relative;
+    top: 0.5em;
+}
+
+.register input[type="radio"]{
+    top: 0.7em;
+}
+
+.register .tbl_form p{
+	font-size: 1.1em;
+	margin-bottom: 1em;
+}
+
+.register .tbl_form p span{
+	width: fit-content;
+    display: inline-block;
+    position: relative;
+    top: 0;
+}
+
+.register .tbl_form a{
+	color: #296573;
+	font-weight: 550;
+}
+
+/*-------------------------
+About Us
+-------------------------*/
+.about{
+    background: #808080;
+	color: #fff;
+    padding: 0.5em;
+    margin: 4em 0;
+}
+
+.about h1, 
+.property_block_body .add_cat_title, 
+.cover_img_block, .msg_block_body{
+	margin-bottom: 1em !important;
+}
+
+.about .about_text{
+	font-size: 1.12em;
+}
+
+/*-------------------------
+Footer Section
+-------------------------*/
+.footersection .footer-top{
+	padding: 3em 2.5em;
+	background: #808080;
+}
+
+.footer-top .footer_content{
+	width: 32%;
+    padding: 0.5em;
+    color: #fff;
+    float: left;
+}
+
+.footer-top .footer_content h2, 
+.property_filter ul li:last-child, .alert{
+    margin-bottom: 1em;
+}
+
+.footer_text{
+	line-height: 2em;
+	margin-bottom: 1.2em;
+}
+
+.footer_text .text_icon, 
+.footer_text .text_body{
+	float: left;
+}
+
+.footer_text .text_icon{
+	width: 8%;
+    font-size: 1.3em;
+    margin-right: 5%;
+}
+
+.footer_text .text_img{
+	width: 20%;
+}
+
+.footer_text img, 
+.admin_property_table img{
+	border-radius: .2em;
+}
+
+.footer_text a, .footer_top_lower a, 
+.footersection .footer-bottom{
+	color: #fff;
+}
+
+.footer_text .text_body{
+	width: 75%;
+}
+
+.footer_text .footer_nav{
+	width: 100%;
+}
+
+.footer_nav li{
+	border-bottom: 0.1em solid #ddd;
+}
+
+.footer-top .footer_top_lower{
+	width: fit-content;
+    margin: 0 auto;
+    padding: 1em;
+    font-size: 1.5em;
+}
+
+.footer_top_lower p{
+	height: 2em;
+    width: 2em;
+	background: #3a7684;
+    padding: 0.4em;
+    border-radius: 50%;
+    box-shadow: 0 0 0.05em #a9a9a9;
+	margin: 0 0.5em;
+}
+
+.footer_top_lower .fb, .footer_top_lower .tw, .footer_top_lower .gp{transition: .3s cubic-bezier(0.68, 1.07, 0.31, 0.62) background;}
+
+.footer_top_lower .fb{
+	background: #3a5a95;
+}
+
+.footer_top_lower .fb:hover{
+	background: #183874;
+}
+
+.footer_top_lower .tw{
+	background: #57aced;
+}
+
+.footer_top_lower .tw:hover{
+	background: #358acb;
+}
+
+.footer_top_lower .gp{
+	background: #dd4f43;
+}
+
+.footer_top_lower .gp:hover{
+	background: #bb2d21;
+}
+
+.footersection .footer-bottom{
+	background: #525252;
+    font-size: 1.15em;
+    padding: 1em;
+}
+
+
+
+/*=============================================================
+Style for property list page
+=============================================================*/
+.property_box{
+    border: 0.1em solid #ddd;
+	margin-bottom: 2em;
+	transition: .3s cubic-bezier(0.68, 1.07, 0.31, 0.62) all;
+}
+
+.property_box:hover{
+	box-shadow: 0 0 .4em #a9a9a9;
+}
+
+.property_box, .wishlist_box{
+	border-radius: 0.4em;
+}
+
+.property_box img{
+	border-top-left-radius: .4em;
+	border-bottom-left-radius: .4em;
+}
+
+.property_box .property_box_content{
+	overflow: hidden;
+    height: 100%;
+}
+
+.property_box .property_box_img{
+    width: 30%;
+}
+
+.property_box .property_box_text{
+	padding: 1em;
+    width: 70%;
+	line-height: 2em;
+}
+
+.property_box p:last-child{
+	float: right;
+    font-weight: 650;
+}
+
+.pagination{
+	width: fit-content;
+    margin: 0 auto;
+	font-size: 1.2em;
+}
+
+.pagination ul{
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+    background: #ffffff;
+	border-radius: 1em;
+}
+
+.pagination ul li a{
+	color: rgb(58 118 132 / 80%);
+	border: 0.01em solid rgb(58 118 132 / 80%);
+    padding: .5em 1.5em;
+	transition: .3s cubic-bezier(0.68, 1.07, 0.31, 0.62) all;
+}
+
+.pagination ul li a:hover, 
+.admin_nav, .topnav_admin{
+	background: #3a7684;
+	color: #fff;
+}
+
+.pagination ul li:first-child a{
+	border-top-left-radius: 1em;
+	border-bottom-left-radius: 1em;
+}
+
+.pagination ul li:last-child a{
+	border-top-right-radius: 1em;
+	border-bottom-right-radius: 1em;
+}
+
+
+
+/*=============================================================
+Style for property category page
+=============================================================*/
+.property_category{
+	border: 0.01em solid #ddd;
+    padding: 1em;
+    border-radius: 0.4em;
+	height: 30em;
+}
+
+.property_category h2{
+    margin-bottom: 1em;
+    border-bottom: 0.01em solid #ddd;
+	padding-bottom: .5em;
+}
+
+.property_category ul li{
+	padding: 1em;
+    font-size: 1.1em;
+}
+
+.property_category ul li, .property_filter ul li:first-child{
+	border-bottom: .01em dotted #3a7684;
+}
+
+.property_category ul li a{
+	color: #3a7684;
+	transition: .3s cubic-bezier(0.68, 1.07, 0.31, 0.62) all;
+}
+
+.property_category ul li:last-child{
+	border-bottom: none;
+}
+
+.property_category ul li a:hover{
+	color: #174351;
+}
+
+.cat_heading{
+	left: 88%;
+    margin-right: -6em;
+    color: #fff;
+    box-shadow: none;
+    transform: rotate(45deg);
+}
+
+.cat_heading span{
+	margin: 0 20%;
+}
+
+
+
+/*=============================================================
+Style for property wishlist page
+=============================================================*/
+.wishlist_box .wishlist_button{
+	width: fit-content;
+    height: fit-content;
+    padding: 1em;
+    background: #ff0000;
+    border-radius: 50%;
+    float: right;
+    position: relative;
+    right: -0.4em;
+    top: -0.4em;
+	transition: .3s cubic-bezier(0.68, 1.07, 0.31, 0.62) background;
+}
+
+.wishlist_box .del_wlist{
+	color: #fff;
+}
+
+.wishlist_box .wishlist_button:hover{
+	background: #cc0000;
+}
+
+
+
+/*==========================================================
+Style for property details page
+===========================================================*/
+.property_details{
+	padding: 0 1em;
+}
+
+.property_title, .property_faq{
+	margin-top: 4em;
+}
+
+.property_title h1, 
+.property_details_body p span{
+	font-weight: 600;
+}
+
+.property_details .property_location{
+	font-size: 1.2em;
+    line-height: 2em;
+}
+
+.property_gallery{
+	display: grid;
+	grid-gap: 1em;
+	grid-template-areas: 'first first . .' 'first first . .';
+	margin: 2em 0;
+}
+
+.property_gallery img{
+	border-radius: .3em;
+}
+
+.property_gallery div:first-child{
+	grid-area: first;
+}
+
+.property_gallery div div{
+	position: relative;
+    background: rgba(0, 0, 0, .8);
+    height: fit-content;
+    width: fit-content;
+    padding: 0.5em;
+    margin-bottom: -2.15em;
+    left: 86%;
+    border-radius: 0.2em;
+}
+
+.property_gallery div div a{
+	color: #ffffff;
+}
+
+.property_small_details .taka_sign{
+	width: 1.5em;
+    float: none;
+    position: relative;
+    top: 0.2em;
+}
+
+.property_small_details h2{
+	font-weight: 500;
+}
+
+.property_small_details h4{
+	text-align: right;
+	font-size: 1.5em;
+}
+
+.property_details_list{
+	margin: 2em 0;
+}
+
+.property_details_list h1, .property_contact h1, .property_faq h1{
+    padding: 0.6em 0 .4em;
+}
+
+.property_details_list h3, 
+.property_contact h3, 
+.faq_body h3{
+    font-size: 1.6em;
+    padding: 1em 0 0.4em;
+}
+
+.property_details_body{
+	border-bottom: 0.1em solid #ddd;
+}
+
+.property_details_body:last-child{
+	border-bottom: none;
+}
+
+.property_details_list .property_description p{
+	text-transform: none;
+}
+
+.property_details_body p{
+	font-size: 1.1em;
+}
+
+.property_details_body p, 
+.property_contact p, 
+.faq_body p{
+	line-height: 2.2em;
+}
+
+.property_contact{
+	margin-bottom: 2em;
+}
+
+.property_contact_title{
+    margin-bottom: 1em;
+}
+
+.property_feature div{
+	width: 50%;
+}
+
+.property_contact h3, 
+.faq_body h3{
+	padding-top: 0;
+}
+
+.property_contact .contact_part{
+	width: 50%;
+}
+
+.property_contact .contact_part:first-child{
+	margin-right: 5em;
+}
+
+.property_contact p, 
+.faq_body p, .login_button span{
+	font-size: 1.1em;
+}
+
+.faq_body p{
+	margin-bottom: 1.5em;
+}
+
+.virtual_contact div:first-child{
+	width: 30%;
+    color: #396573;
+    font-weight: 600;
+}
+
+.property_contact .action_button, .property_contact .login_button, .property_contact .contact_button{
+    padding: 1em;
+}
+
+.property_contact .action_button button{
+	width: 25%;
+}
+
+
+
+/*==========================================================
+Style for add property page
+===========================================================*/
+.admin_nav, .admin_content{
+    border: .15em solid #ddd;
+    border-radius: 0.3em;
+	font-size: 1.1em;
+}
+
+.admin_nav .backtosite i{
+	transform: rotate(-145deg);
+}
+
+.admin_nav ul li a{
+	padding: 1em 1.4em;
+	color: #fff;
+    box-shadow: inset 0em 5em 3em 0.3em #174351;
+}
+
+.admin_nav ul li:first-child a{
+	border-top-left-radius: .3em;
+	border-top-right-radius: .3em;
+}
+
+.admin_nav ul li:last-child a{
+	border-bottom-left-radius: .3em;
+	border-bottom-right-radius: .3em;
+}
+
+.row_number{
+	padding: 0.15em 0.4em;
+    background: #fff;
+    color: #174351;
+    border-radius: 50%;
+    margin-left: 0.2em;
+    position: relative;
+    bottom: 0.5em;
+}
+
+.admin_nav ul li a:hover, #active_admin{
+	background: #fff;
+    box-shadow: inset 0em 1em 1em 0em #ddd;
+	color: #3a7684;
+}
+
+.admin_nav ul li a:hover .row_number{
+	background: #3a7684;
+	color: #fff;
+}
+
+.topnav_admin{
+	display: none;
+}
+
+.add_property_block .property_block_title{
+	padding: 1em;
+    background: #ededed;
+    box-shadow: 0em 0.4em 0em #ddd;
+    margin-bottom: 1em;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.add_property_block{
+	margin-bottom: 3.5em;
+}
+
+.add_property_block .property_block_body{
+	width: 90%;
+    margin: 0 auto;
+	padding: 0.5em 0;
+}
+
+.add_property_block .add_property_title, 
+.property_negotiable_check span{
+	text-align: left;
+    color: #444;
+    margin-bottom: 0.4em;
+}
+
+.property_block_body input, 
+.property_block_body select{
+	box-shadow: 0 0 0.1em #a9a9a9;
+	margin-bottom: 1em;
+}
+
+.property_block_body .property_negotiable_check{
+	float: left;
+}
+
+.property_negotiable_check span{
+	position: relative;
+    bottom: 0.2em;
+}
+
+
+
+/*==========================================================
+Style for dashboard pages
+===========================================================*/
+.my_dashboard_block{
+	flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+	float: left;
+    width: 45%;
+    margin: 1em;
+    padding: 1em;
+    font-weight: 550;
+    line-height: 2.5em;
+    border: 0.1em solid #ddd;
+    border-radius: 2em;
+	box-shadow: -0.3em 0em 0em #000;
+}
+
+.my_dashboard_block:last-child{
+	float: none;
+    margin: 1em auto;
+}
+
+.my_dashboard_block .dashboard_block_body{
+	float: left;
+}
+
+.my_dashboard_block .dashboard_block_body:first-child{
+	width: 80%;
+}
+
+.my_dashboard_block .dashboard_block_body:last-child{
+	width: 20%;
+}
+
+.dashboard_total_post{
+	box-shadow: -0.3em 0em 0em #3a7684;
+	color: #3a7684;
+}
+
+.dashboard_pending_post{
+	box-shadow: -0.3em 0em 0em #ed143d;
+	color: #ed143d;
+}
+
+.dashboard_published_post{
+	box-shadow: -0.3em 0em 0em #32cd32;
+	color: #32cd32;
+}
+
+.dashboard_booked_post{
+	box-shadow: -0.3em 0em 0em #ff4500;
+	color: #ff4500;
+}
+
+.dashboard_category{
+	box-shadow: -0.3em 0em 0em #8a2be2;
+	color: #8a2be2;
+}
+
+.dashboard_user{
+	box-shadow: -0.3em 0em 0em #808080;
+	color: #808080;
+}
+
+.dashboard_owner{
+	box-shadow: -0.3em 0em 0em #0d0d44;
+	color: #0d0d44;
+}
+
+.dashboard_tenant{
+	box-shadow: -0.3em 0em 0em #936839;
+	color: #936839;
+}
+
+.dashboard_notification{
+	box-shadow: -0.3em 0em 0em #1e90ff;
+	color: #1e90ff;
+}
+
+.dashboard_lower_part{
+	margin: 2em auto;
+    padding: 1em;
+}
+
+.dashboard_lower_part p{
+	font-size: 2em;
+	line-height: 1.4em;
+	margin-bottom: .5em;
+}
+
+
+
+/*==========================================================
+Style for admin property list page
+===========================================================*/
+.admin_property_table table{
+	border-collapse: collapse;
+}
+
+.admin_property_table table th{
+    background: #dfdfdf;
+    padding: 0.5em;
+}
+
+.admin_property_table table td{
+	padding: .5em;
+	border-bottom: 0.1em solid #ddd;
+}
+
+.admin_property_table table tr:last-child td{
+	border: none;
+}
+
+.admin_property_table table a{
+	margin: .2em;
+	display: inline-block !important;
+	color: #333333;
+    font-weight: 650;
+}
+
+.admin_property_table table a:hover{
+	color: #000000;
+}
+
+.admin_property_table .published{
+	font-weight: 600;
+    background: #9b968e;
+    width: fit-content;
+    padding: 0.4em 1em;
+    border-radius: 1em;
+    margin: 0 auto;
+    box-shadow: 0 0 0.2em #a9a9a9;
+}
+
+.property_filter{
+	height: fit-content;
+}
+
+.property_filter ul li{
+	border: none;
+}
+
+
+/*==========================================================
+Style for profile page
+===========================================================*/
+.user_profile{
+	width: 90%;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.profile_header .profile_image,
+.profile_header .profile_label{
+	width: 35%;
+    margin: 0 auto;
+}
+
+.profile_header .profile_image{
+	height: 15em;
+    border-radius: 50%;
+	margin-bottom: 1em;
+}
+
+.profile_image, 
+.admin_property_table .user_img{
+	padding: 0.15em;
+    border: 0.1em solid #ddd;
+	box-shadow: 0 0 0.15em #a9a9a9;
+}
+
+.profile_image img, 
+.admin_property_table .user_img{
+	border-radius: 50%;
+}
+
+.profile_body table tr:first-child td, .profile_body table tr td:first-child, .msg_field_box{
+    line-height: initial;
+    text-align: left;
+	font-weight: 600;
+}
+
+.profile_body table tr{
+	line-height: 6em;
+}
+
+.profile_body table h3{
+	margin-top: 2.5em;
+}
+
+.add_cat_block{
+	margin-top: 3.5em;
+}
+
+.cover_img_block{
+	width: 15em;
+    margin: 0 auto;
+    height: 11em;
+}
+
+.cover_img_block img{
+	border-radius: .3em;
+}
+
+.admin_property_table .user_img{
+	width: 4em;
+    height: 4em;
+}
+
+.tbl_msg tr td{
+	line-height: 4em !important;
+}
+
+.tbl_msg a, {
+	display: initial;
+	color: #fff;
+}
+
+.msg_field_box:first-child{
+	width: 12%;
+    padding: 1em 0;
+}
+
+.msg_field_box:last-child{
+	width: 90%;
+}
+
+.msg_button a{
+	width: fit-content;
+    float: left;
+    margin: 0 auto;
+    position: relative;
+    left: 38%;
+    color: #fff;
+}
+
+.admin_page_title .page_title{
+	padding: 1em;
+    border-top-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    border-bottom-left-radius: 0.2em;
+    border-top-right-radius: 0.2em;
+    background: #888888;
+    box-shadow: inset 0em 5em 3em 0.3em #525252;
+}
+
+.admin_page_title h1{
+	width: 85%;
+    float: left;
+    margin: 0 auto;
+    position: relative;
+    left: 7%;
+}
+
+.admin_page_title h4{
+	width: 15%;
+    float: left;
+    text-align: center;
+    text-transform: capitalize;
+    line-height: 2.5em;
+    background: #f9f9f9;
+    border-radius: 2em;
+    box-shadow: inset 0 1em 0.5em #ddd;
+}
+
+.admin_page_title a{
+    color: #888888;
+}
+
+.hidemenu, .hide_dashboard_menu{
+	max-height: fit-content;
+	overflow: inherit;
+	z-index: 100;
+}
+
+
+
+
+
+/*========================================================
+Responsive style: For small screen
+=========================================================*/
+
+/*-------------- For Small devices ---------------*/
+@media only screen and (max-width:355px){
+	html{
+		font-size: 91%;
+	}
+	
+	.mcol_12, .mcol_3, .mcol_8, .mcol_9{
+		width: 100%;
+	}
+	
+	.topnav ul, .topnav_bars, .top_left ul, .searchform table tr td, .list .list_content, .about .about_text, .contact_body, .topnav_admin, .property_box .property_box_content, .property_contact .property_contact_body, .register .tbl_form td, .small_display_table table td, .admin_property_table table a, .profile_body table tr td, .mcol_12, .mcol_3, .mcol_8, .mcol_9, .msg_block_body, .footer-top .footer_content{
+		display: block;
+	}
+	
+	.topnav{
+		overflow: hidden;
+		max-height: 33px;
+		transition: .5s cubic-bezier(0.68, 1.07, 0.31, 0.62) max-height;
+	}
+	
+	.topnav_bars{
+		padding: 0.2em;
+	}
+	
+	.hidemenu{
+		max-height: fit-content;
+		overflow: inherit;
+	}
+	
+	.property_dropdown{
+		left: 5em;
+	}
+	
+	.top_left, .top_right{
+		font-size: 58%;
+		font-weight: 545;
+		width: fit-content;
+	}
+	
+	.top_left ul{
+		text-align: left;
+		margin-left: 1em;
+	}
+	
+	.top_left .top_header_list{
+		line-height: 2em;
+	}
+	
+	.centered h1 {
+		font-size: 1.25em;
+	}
+	
+	.searchform .select {
+		font-size: .7em;
+	}
+	
+	.searchform table .last_select .select{
+		max-width: initial;
+	}
+	
+	.searchform button{
+		padding: 0.2em;
+		position: relative;
+		top: 0.25em;
+	}
+	
+	.searchform button span, .admin_aside{
+		display:none;
+	}
+	
+	.list_item{
+		width: 100%;
+		margin-bottom: 1.5em;
+	}
+	
+	.item_pricebox .item_upper_left{
+		width: 42%;
+	}
+	
+	.item_pricebox .item_wlist_icon{
+		width: 14%;
+	}
+	
+	.sub-title{
+		font-size: 1.9em;
+	}
+	
+	.contact_body .contact_part, .property_contact_body .contact_part{
+		width: 95%;
+	}
+	
+	.contact_body .contact_part:last-child{
+		height: 15em;
+	}
+	
+	.footer-top .footer_content{
+		float: none;
+		width: 80%;
+		margin: 0 auto;
+		margin-bottom: 1.4em;
+	}
+	
+	.footer-top .footer_content h2{
+		font-size: 1.3em;
+	}
+	
+	.footer_text{
+		margin: 0 auto;
+		text-align: left;
+		margin-bottom: 1em;
+		overflow: visible;
+	}
+	
+	.footer_content:first-child .footer_text .text_icon{
+		width: 14%;
+	}
+	
+	.footer_content:nth-child(2n) .footer_text .text_icon{
+		width: 20%;
+		position: relative;
+		top: 0.7em;
+	}
+	
+	.footer-top .footer_content:first-child .footer_text{
+		margin-left: 10%
+	}
+	
+	.footer-top .footer_content .footer_property{
+		margin-left: 5%;
+	}
+	
+	.property_details, .property_details_list h1, .property_description, .faq_title, .property_box_content, .property_small_details, .property_small_details h4, .profile_header .profile_label, .register .tbl_form, #example tr td:last-child, .footer-top .footer_content:last-child .footer_text, .footer-top .footer_content, .list_item{
+		text-align: center;
+	}
+	
+	.register{
+		width: 85%;
+		padding: 1.5em;
+	}
+	
+	.register .tbl_form td:first-child {
+		width: initial;
+	}
+	
+	.register .tbl_form caption{
+		font-size: .7em;
+	}
+	
+	.register .tbl_form label{
+		width: 100%;
+		margin-bottom: 1em;
+		margin-left: 0;
+	}
+	
+	.responsive_display{
+		font-size: 93%;
+	}
+	
+	.property_category{
+		height: fit-content;
+	}
+	
+	.property_box .property_box_text, 
+	.property_box .property_box_img{
+		width: 100%;
+	}
+	
+	.property_box img {
+		border-radius: 0;
+		border-top-left-radius: 0.4em;
+		border-top-right-radius: 0.4em;
+	}
+	
+	.property_box p:last-child{
+		float: none;
+	}
+	
+	.pagination{
+		font-size: .7em;
+		width: 50%;
+	}
+	
+	.property_title h1{
+		font-size: 1.32em;
+	}
+	
+	.property_small_details{
+		font-size: .75em;
+	}
+	
+	.property_details_list h1{
+		font-size: 1.5em;
+	}
+	
+	.property_gallery{
+		grid-gap: 0.3em;
+	}
+	
+	.property_contact .action_button button{
+		width: fit-content;
+	}
+	
+	.wishlist_box .wishlist_button{
+		margin-left: -5em;
+	}
+	
+	.property_contact_title h1, 
+	.faq_title h1{
+		font-size: 1.5em;
+		margin-bottom: 1em;
+	}
+	
+	.virtual_contact:first-child div:last-child, 
+	.virtual_contact:last-child div:last-child{
+		margin-left: 1em;
+	}
+	
+	.admin_page_title h1{
+		width: 100%;
+		float: none;
+		left: 0;
+	}
+	
+	.admin_page_title h4{
+		width: fit-content;
+		padding: 0.1em 1em;
+		line-height: 1.6em;
+		float: none;
+		margin: 0 auto;
+		margin-top: 0.8em;
+	}
+	
+	.my_dashboard_block{
+		width: initial;
+		float: none;
+	}
+	
+	.my_dashboard_block:last-child{
+		margin: 1em;
+	}
+	
+	.my_dashboard_block .dashboard_block_body:first-child{
+		width: 72%;
+	}
+	
+	.my_dashboard_block .dashboard_block_body:last-child{
+		width: 25%;
+	}
+	
+	#example tr td:last-child{
+		font-size: .59em;
+	}
+	
+	.admin_property_table .published{
+		margin-bottom: 1em;
+	}
+	
+	.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter{
+		overflow: hidden;
+		margin-bottom: 1em;
+	}
+	
+	.dataTables_wrapper label{
+		width: 100%;
+	}
+	
+	.dataTables_wrapper input, .admin_property_table table td{
+		width: 95%;
+	}
+	
+	.responsive_mcol_small{
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	.admin_property_table table td{
+		border-bottom: none;
+	}
+	
+	.overflow_x{
+		overflow: scroll;
+	}
+	
+	.admin_property_table .user_img{
+		width: 2em;
+		height: 2em;
+	}
+	
+	.profile_header .profile_image{
+		height: 5.4em;
+	}
+	
+	.profile_header .profile_label{
+		width: 100%;
+	}
+	
+	.profile_body table h3{
+		margin-bottom: 1.2em;
+	}
+	
+	.msg_field_box{
+		width: 100% !important;
+		float: none;
+	}
+	
+	.slick-next, .slick-prev{
+		display: none;
+	}
+}
+
+
+@media only screen and (min-width:355px) and (max-width: 772px){
+	html{
+		font-size: 91%;
+	}
+	
+	.mcol_12, .mcol_3, .mcol_8, .mcol_9{
+		width: 100%;
+	}
+	
+	.topnav ul, .topnav_bars, .top_left ul, .searchform table tr td, .list .list_content, .about .about_text, .contact_body, .topnav_admin, .property_box .property_box_content, .property_contact .property_contact_body, .register .tbl_form td, .small_display_table table td, .admin_property_table table a, .profile_body table tr td, .mcol_12, .mcol_3, .mcol_8, .mcol_9, .msg_block_body, .footer-top .footer_content{
+		display: block;
+	}
+	
+	.admin_small_screen_td a{
+		display: inline-block !important;
+	}
+	
+	.topnav{
+		overflow: hidden;
+		max-height: 33px;
+		transition: .5s cubic-bezier(0.68, 1.07, 0.31, 0.62) max-height;
+	}
+	
+	.topnav_bars{
+		padding: 0.2em;
+	}
+	
+	.hidemenu{
+		max-height: fit-content;
+		overflow: inherit;
+	}
+	
+	.property_dropdown{
+		left: 45%;
+	}
+	
+	.top_left, .top_right{
+		font-size: 58%;
+		font-weight: 545;
+		width: fit-content;
+	}
+	
+	.top_left ul{
+		text-align: left;
+		margin-left: 1em;
+	}
+	
+	.top_left .top_header_list{
+		line-height: 2em;
+	}
+	
+	.centered h1 {
+		font-size: 1.25em;
+	}
+	
+	.searchform .select {
+		font-size: .7em;
+	}
+	
+	.searchform table .last_select .select{
+		max-width: initial;
+	}
+	
+	.searchform button{
+		padding: 0.2em;
+		position: relative;
+		top: 0.25em;
+	}
+	
+	.searchform button span, .admin_aside{
+		display:none;
+	}
+	
+	.item_box_upper .item_pricebox{
+		bottom: 3em;
+	}
+	
+	.list_item{
+		width: 100%;
+		margin-bottom: 1.5em;
+	}
+	
+	.item_pricebox .item_upper_left{
+		width: 32%;
+		padding: 2%;
+	}
+	
+	.item_pricebox .item_wlist_icon{
+		width: 14%;
+	}
+	
+	.sub-title{
+		font-size: 1.9em;
+	}
+	
+	.contact_body .contact_part, .property_contact_body .contact_part{
+		width: 95%;
+	}
+	
+	.contact_body .contact_part:last-child{
+		height: 15em;
+	}
+	
+	.footer-top .footer_content {
+		float: none;
+		width: 80%;
+		margin: 0 auto;
+		margin-bottom: 1.4em;
+	}
+	
+	.footer-top .footer_content h2{
+		font-size: 1.3em;
+	}
+	
+	.footer_text{
+		margin: 0 auto;
+		text-align: left;
+		margin-bottom: 1em;
+		overflow: visible;
+	}
+	
+	.footer_content:first-child .footer_text .text_icon{
+		width: 12%;
+	}
+	
+	.footer_content:nth-child(2n) .footer_text .text_icon{
+		width: 20%;
+		position: relative;
+		top: 0.7em;
+	}
+	
+	.footer-top .footer_content:first-child .footer_text{
+		margin-left: 25%
+	}
+	
+	.footer-top .footer_content .footer_property{
+		margin-left: 20%;
+	}
+	
+	.property_details, .property_details_list h1, .property_description, .faq_title, .property_box_content, .property_small_details, .property_small_details h4, .profile_header .profile_label, .register .tbl_form, #example tr td:last-child, .footer-top .footer_content:last-child .footer_text, .list_item, .footer-top .footer_content{
+		text-align: center;
+	}
+	
+	.register{
+		width: 85%;
+		padding: 1.5em;
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	
+	.register input[type=text], .register input[type=email], .register input[type=password], .register input[type=phone], .register textarea{
+		width: 90%;
+		float: none;
+	}
+	
+	.form_container .mcol_9{
+		padding-bottom: 0;
+		margin-bottom: -6em;
+	}
+	
+	.form_container .signup_bg{
+		height: 22em;
+		margin-top: 6em;
+	}
+	
+	.register .tbl_form td:first-child {
+		width: initial;
+	}
+	
+	.register .tbl_form label{
+		width: 100%;
+		margin-bottom: 1em;
+		margin-left: 0;
+	}
+	
+	.responsive_display{
+		font-size: 93%;
+	}
+	
+	.property_category{
+		height: fit-content;
+	}
+	
+	.property_box .property_box_text, 
+	.property_box .property_box_img{
+		width: 100%;
+	}
+	
+	.property_box img {
+		border-radius: 0;
+		border-top-left-radius: 0.4em;
+		border-top-right-radius: 0.4em;
+	}
+	
+	.property_box p:last-child{
+		float: none;
+	}
+	
+	.pagination{
+		font-size: .7em;
+		width: 50%;
+	}
+	
+	.property_title h1{
+		font-size: 1.32em;
+	}
+	
+	.property_small_details{
+		font-size: .75em;
+	}
+	
+	.property_details_list h1{
+		font-size: 1.5em;
+	}
+	
+	.property_gallery{
+		grid-gap: 0.3em;
+	}
+	
+	.property_contact .action_button button{
+		width: fit-content;
+	}
+	
+	.wishlist_box .wishlist_button{
+		margin-left: -5em;
+	}
+	
+	.property_contact_title h1, 
+	.faq_title h1{
+		font-size: 1.5em;
+		margin-bottom: 1em;
+	}
+	
+	.virtual_contact:first-child div:last-child, 
+	.virtual_contact:last-child div:last-child{
+		margin-left: 1em;
+	}
+	
+	.admin_page_title h1{
+		width: 100%;
+		float: none;
+		left: 0;
+	}
+	
+	.admin_page_title h4{
+		width: fit-content;
+		padding: 0.1em 1em;
+		line-height: 1.6em;
+		float: none;
+		margin: 0 auto;
+		margin-top: 0.8em;
+	}
+	
+	.my_dashboard_block{
+		width: initial;
+		float: none;
+	}
+	
+	.my_dashboard_block:last-child{
+		margin: 1em;
+	}
+	
+	.my_dashboard_block .dashboard_block_body:first-child{
+		width: 72%;
+	}
+	
+	.my_dashboard_block .dashboard_block_body:last-child{
+		width: 25%;
+	}
+	
+	#example tr td:last-child{
+		font-size: .59em;
+	}
+	
+	.admin_property_table .published{
+		margin-bottom: 1em;
+	}
+	
+	.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter{
+		overflow: hidden;
+		margin-bottom: 1em;
+	}
+	
+	.dataTables_wrapper label{
+		width: 100%;
+	}
+	
+	.dataTables_wrapper input, .admin_property_table table td{
+		width: 95%;
+		margin: 0 auto;
+	}
+	
+	.responsive_mcol_small{
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	.admin_property_table table td{
+		border-bottom: none;
+	}
+	
+	.overflow_x{
+		overflow: scroll;
+	}
+	
+	.admin_property_table .user_img{
+		width: 2em;
+		height: 2em;
+	}
+	
+	.profile_header .profile_image, .profile_image img{
+		border-radius: 1em;
+	}
+	
+	.profile_header .profile_image{
+		height: 10em;
+		box-shadow: 0 0 0.4em #a9a9a9;
+		padding: 0;
+		border: 0;
+	}
+	
+	.profile_header .profile_label{
+		width: 100%;
+	}
+	
+	.profile_body table h3{
+		margin-bottom: 1.2em;
+	}
+	
+	.msg_button a{
+		display: block;
+		float: none;
+		left: 0;
+		margin-top: 0.8em;
+	}
+	
+	.msg_field_box{
+		width: 100% !important;
+		float: none;
+	}
+	
+	.slick-next, .slick-prev{
+		display: none !important;
+	}
+}
+
+
+/*-------------- For Medium Devices ---------------*/
+@media only screen and (min-width:576px) and (max-width: 772px){	
+	html{
+		font-size: 95%;
+	}
+	
+	.top_left, .top_right{
+		font-size: 100%;
+	}
+	
+	.topnav{
+		max-height: 45px;
+	}
+	
+	.topnav_bars{
+		padding: 0.4em;
+	}
+	
+	.hidemenu{
+		max-height: fit-content;
+	}
+	
+	.footer-top .footer_content{
+		text-align: center;
+		display: inline-block;
+		float: left;
+		width: 50%;
+	}
+	
+	.footer-top .footer_content:last-child{
+		width: 100%;
+	}
+	
+	.property_small_details{
+		font-size: initial;
+	}
+	
+	.property_title h1{
+		font-size: 2.2em;
+	}
+	
+	.property_small_details, .property_small_details h4{
+		text-align: inherit;
+	}
+	
+	.property_small_details h4{
+		text-align: right;
+	}
+	
+	.property_contact_body .contact_part{
+		margin: 0 auto;
+		margin-top: 1.5em;
+	}
+	
+	.virtual_contact div:last-child{
+		width: 100%;
+	}
+	
+	.contact_part:last-child{
+		margin-top: 1em;
+	}
+	
+	.register .tbl_form td{
+		display: inline-block;
+	}
+	
+	.register .tbl_form td:first-child{
+		width: 30%;
+	}
+	
+	.register .tbl_form td:last-child{
+		width: 70%;
+	}
+	
+	.register .tbl_form label{
+		width: initial;
+		margin-bottom: 0;
+	}
+	
+	table.dataTable thead{
+		font-size: initial;
+	}
+	
+	.dataTables_wrapper label {
+		width: initial;
+	}
+	
+	.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+		overflow: inherit;
+		margin-bottom: 0;
+	}
+	
+	.admin_property_table table a{
+		display: inherit;
+	}
+	
+	#example tr td:last-child{
+		font-size: initial;
+	}
+	
+	#example tr:nth-child(2n) img{
+		margin-top: 3em;
+	}
+	
+	.slick-next, .slick-prev{
+		display: none !important;
+	}
+}
+
+
+@media only screen and (min-width: 772px) and (max-width: 1028px){
+	html{
+		font-size: 80%;
+	}
+	
+	.top_left, .top_right{
+		font-size: 90%;
+	}
+	
+	.dataTables_wrapper {
+		font-size: 80%;
+	}
+	
+	.topnav{
+		font-size: 90%;
+	}
+}
+
+
+/*-------------- For Large Devices ---------------*/
+@media only screen and (min-width: 1028px) and (max-width: 2052px){
+	html{
+		font-size: 90%;
+	}
+	
+	.top_left{
+		width: 65%;
+	}
+	
+	.item_box_upper .item_pricebox{
+		bottom: 0;
+	}
+}
+
+
+/*-------------- For 2K & 4K Resolutions ---------------*/
+@media only screen and (min-width: 2052px){
+	body{
+		zoom: 1.8;
+	}
+}
+
+
+@media only screen and (min-width: 3840px){
+	body{
+		zoom: 2.9;
+	}
+}
+
+
+
+
+
